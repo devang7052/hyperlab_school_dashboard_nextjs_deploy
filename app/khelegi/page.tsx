@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { useSession } from '../hooks/useSession';
 import { useDashboardConfig } from '../lib/DashboardConfigContext';
 import { useFilteredSurveyData } from '../hooks/khelegi/khelegiTable/useFilteredSurveyData';
@@ -57,7 +58,7 @@ export default function KhelegiPage() {
     <div className="khelegi-theme h-screen bg-[var(--background)] flex flex-col">
       {/* Header - Fixed height */}
       <header className="flex-shrink-0 w-full bg-[var(--foreground)] py-5 px-8 flex justify-between items-center z-50">
-        <img src="/icons/hyperlab_logo.svg" alt="Hyperlab Logo" className="h-8" />
+        <Image src="/icons/hyperlab_logo.svg" alt="Hyperlab Logo" width={32} height={32} className="h-8" />
         <button 
           onClick={logout}
           className="px-4 py-2 bg-[var(--primary-500)] text-white hover:bg-[var(--primary-600)] text-sm"

@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 interface FilterOption {
   value: string;
@@ -32,9 +33,11 @@ const FilterSection: React.FC<FilterSectionProps> = ({
         onClick={onToggle}
       >
         <h4 className={`text-base text-[var(--neutral-500)] ${inheritFont ? '' : "font-['MADE_Outer_Sans_Light']"} ml-3`}>{title}</h4>
-        <img 
-          src="/icons/down_navigation.svg" 
-          alt="Toggle" 
+        <Image
+          src="/icons/down_navigation.svg"
+          alt="Toggle"
+          width={16}
+          height={16}
           className={`h-4 w-4 mr-1 transition-transform duration-200  ${isExpanded ? 'rotate-180' : ''}`}
         />
       </div>

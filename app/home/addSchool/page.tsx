@@ -3,6 +3,7 @@
 
 import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
+import Image from 'next/image'
 import { useAddSchool } from '../../hooks/useAddSchool'
 import EmailInputForm from '../../components/common/EmailInputForm'
 import OtpInputForm from '../../components/common/OtpInputForm'
@@ -46,7 +47,7 @@ export default function AddSchoolPage() {
   return (
     <div className="min-h-screen flex flex-col bg-[var(--background)]">
      <header className="w-full bg-[var(--foreground)] py-6 px-13 flex justify-between items-center ">
-        <img src="/icons/hyperlab_logo.svg" alt="Hyperlab Logo" className="h-8" />
+        <Image src="/icons/hyperlab_logo.svg" alt="Hyperlab Logo" width={32} height={32} className="h-8" />
         <div className="">
           <span className="text-md mr-3 font-['Manrope'] text-[var(--neutral-10)]">Unable to login?</span>
           <button className="bg-[var(--neutral-20)] text-[var(--neutral-700)] font-['Manrope'] px-4 py-2  text-md cursor-pointer hover:bg-gray-100 transition-colors">

@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 import { DashboardConfig } from '@/app/utils/dashboardConfig';
 import { FilterState, FilterType, hasFilterKey, getFilterOptionsByKey } from '@/app/utils/filterHelpers';
 import FilterSection from '@/app/components/common/FilterSection';
@@ -80,11 +81,11 @@ const LeftSidebar: React.FC<LeftSidebarProps> = ({
     <div className="w-80 bg-[var(--background)] shadow-lg h-full flex flex-col">
       <div className="pt-5 px-3 h-full flex flex-col">
         {/* Home Button */}
-        <button 
+        <button
           className={`w-full flex items-center px-4 py-2 text-[var(--neutral-500)] font-['MADE_Outer_Sans_Light'] cursor-pointer bg-[var(--primary-100)] rounded-3xl mb-4`}
           onClick={onHomeClick}
         >
-          <img src="/icons/home.svg" alt="Home Icon" className="h-4 mr-5" />
+          <Image src="/icons/home.svg" alt="Home Icon" width={16} height={16} className="h-4 mr-5" />
           {config.terminology.home}
         </button>
 
@@ -92,16 +93,16 @@ const LeftSidebar: React.FC<LeftSidebarProps> = ({
         <div className="mb-6">
           <div className="flex items-center justify-between mb-2">
             <h3 className="text-md text-[var(--neutral-80)] tracking-wider flex ml-3 items-center mt-4 font-['MADE_Outer_Sans_Light']">
-              <img src="/icons/domain.svg" alt="Domain Icon" className="h-5 mr-4" />
+              <Image src="/icons/domain.svg" alt="Domain Icon" width={20} height={20} className="h-5 mr-4" />
               {config.terminology.schools}
             </h3>
-            <button 
+            <button
               className="p-1 mt-1 text-[var(--neutral-500)] cursor-pointer"
               onClick={() => {
                 router.push('/home/addSchool');
               }}
             >
-              <img src="/icons/add.svg" alt="Add Icon" className="h-3 mr-2 mt-3" />
+              <Image src="/icons/add.svg" alt="Add Icon" width={12} height={12} className="h-3 mr-2 mt-3" />
             </button>
           </div>
 
@@ -135,7 +136,7 @@ const LeftSidebar: React.FC<LeftSidebarProps> = ({
         <div className="border-t border-[var(--neutral-600)] pt-4 flex-1 flex flex-col min-h-0">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-xl text-[var(--neutral-80)] tracking-wider flex ml-3 items-center font-['MADE_Outer_Sans_Light']">
-              <img src="/icons/filter_icon.svg" alt="Filter Icon" className="h-4 mr-3" />
+              <Image src="/icons/filter_icon.svg" alt="Filter Icon" width={16} height={16} className="h-4 mr-3" />
               Filters
             </h3>
             <button 

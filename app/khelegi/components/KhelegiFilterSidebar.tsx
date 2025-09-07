@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { SurveyFilterState } from '../../hooks/khelegi/khelegiTable/useSurveyFilters';
 import FilterSection from '@/app/components/common/FilterSection';
 
@@ -159,11 +160,11 @@ const KhelegiFilterSidebar: React.FC<KhelegiFilterSidebarProps> = ({
     <div className="w-80 bg-[var(--background)] shadow-lg h-full flex flex-col">
       <div className="pt-5 px-3 h-full flex flex-col">
         {/* Home Button */}
-        <button 
+        <button
           className={`w-full flex items-center px-4 py-2 text-[var(--neutral-500)] font-['Manrope'] cursor-pointer bg-[var(--primary-100)] font-semibold rounded-3xl mb-4`}
           onClick={() => window.location.href = '/home'}
         >
-          <img src="/icons/home.svg" alt="Home Icon" className="h-4 mr-5 font-['Manrope']" />
+          <Image src="/icons/home.svg" alt="Home Icon" width={16} height={16} className="h-4 mr-5 font-['Manrope']" />
           Back to Home
         </button>
 
@@ -171,7 +172,7 @@ const KhelegiFilterSidebar: React.FC<KhelegiFilterSidebarProps> = ({
         <div className="border-t border-[var(--neutral-600)] pt-4 flex-1 flex flex-col min-h-0">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-xl text-[var(--neutral-80)] tracking-wider flex ml-3 items-center font-normal">
-              <img src="/icons/filter_icon.svg" alt="Filter Icon" className="h-4 mr-3" />
+              <Image src="/icons/filter_icon.svg" alt="Filter Icon" width={16} height={16} className="h-4 mr-3" />
               Filters
             </h3>
             <button 

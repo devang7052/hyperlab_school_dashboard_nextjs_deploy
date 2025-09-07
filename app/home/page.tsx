@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { useSession } from '../hooks/useSession';
 import { useHomeData } from '../hooks/home/useHomeData';
 import { useFilteredData } from '../hooks/home/homeTable/useFilteredData';
@@ -100,7 +101,7 @@ export default function HomePage() {
     <div className="h-screen bg-[var(--background)] flex flex-col">
       {/* Header - Fixed height */}
       <header className="flex-shrink-0 w-full bg-[var(--foreground)] py-5 px-8 flex justify-between items-center z-50">
-        <img src="/icons/hyperlab_logo.svg" alt="Hyperlab Logo" className="h-8" />
+        <Image src="/icons/hyperlab_logo.svg" alt="Hyperlab Logo" width={32} height={32} className="h-8" />
         <button 
           onClick={logout}
           className="px-4 py-2 bg-[var(--neutral-20)] font-['MADE_Outer_Sans_Thin'] text-[var(--neutral-700)] cursor-pointer  hover:bg-[var(--background-hover)] text-md"

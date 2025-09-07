@@ -2,6 +2,7 @@
 'use client'
 
 import { useEffect } from 'react'
+import Image from 'next/image'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { useAuth } from '../hooks/authentication/useAuth'
@@ -64,7 +65,7 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
       <header className="w-full bg-black py-6 pl-13 text-left ">
-        <img src="icons/hyperlab_logo.svg" alt="Hyperlab Logo" className="h-8" />
+        <Image src="/icons/hyperlab_logo.svg" alt="Hyperlab Logo" width={32} height={32} className="h-8" />
       </header>
       <div className="flex-grow flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-md w-full space-y-8">
