@@ -1,0 +1,167 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "MADE Outer Sans Thin";
+  src: url("/fonts/madeOuterSans/MADE Outer Sans Thin PERSONAL USE.otf")
+    format("opentype");
+}
+
+@font-face {
+  font-family: "MADE Outer Sans Light";
+  src: url("/fonts/madeOuterSans/MADE Outer Sans Light PERSONAL USE.otf")
+    format("opentype");
+}
+
+@font-face {
+  font-family: "MADE Outer Sans Regular";
+  src: url("/fonts/madeOuterSans/MADE Outer Sans Regular PERSONAL USE.otf")
+    format("opentype");
+}
+
+@font-face {
+  font-family: "MADE Outer Sans Medium";
+  src: url("/fonts/madeOuterSans/MADE Outer Sans Medium PERSONAL USE.otf")
+    format("opentype");
+}
+
+@font-face {
+  font-family: "MADE Outer Sans Bold";
+  src: url("/fonts/madeOuterSans/MADE Outer Sans Bold PERSONAL USE.otf")
+    format("opentype");
+}
+
+@font-face {
+  font-family: "MADE Outer Sans Black";
+  src: url("/fonts/madeOuterSans/MADE Outer Sans Black PERSONAL USE.otf")
+    format("opentype");
+}
+
+:root {
+  /* Base colors (global default) */
+  --background: #ffffff;
+  --background-hover: #f2f2f2;
+  --foreground: #171717;
+
+  /* Neutral scale */
+  --neutral-800: #101010;
+  --neutral-700: #1a1a1a;
+  --neutral-600: #202020;
+  --neutral-500: #2a2a2a;
+  --neutral-400: #303030;
+  --neutral-200: #505050;
+  --neutral-100: #606060;
+  --neutral-80: #808080;
+  --neutral-40: #c0c0c0;
+  --neutral-30: #d0d0d0;
+  --neutral-20: #e0e0e0;
+  --neutral-10: #f0f0f0;
+
+  /* Global primary defaults (non-Khelegi) */
+  --primary-500: #e30051;
+  --primary-600: #cc0047;
+  --primary-400: #ec4d86;
+  --primary-100: #f9ccdc;
+  --secondary-400: #7474dc;
+
+  /* Panels and surfaces */
+  --neutral-50: #fafafa;
+
+  /* Status colors */
+  --error-500: #f53d3d;
+  --success-700: #008000;
+
+  /* Theme alias */
+  --theme-primary: var(--primary-500);
+}
+
+/* Scoped brand theme for /khelegi only */
+.khelegi-theme {
+  --foreground: #000000;
+  --primary-500: #cc221c; /* Brick Red */
+  --primary-600: #a81c17;
+  --primary-400: #e02a23;
+  --primary-100: #ffd6d3;
+  --secondary-400: #f05d48; /* Coral Red */
+  --neutral-50: #fee6e0; /* Peach Blush panels */
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@keyframes wobble {
+  0% {
+    transform: translateX(0%);
+  }
+  15% {
+    transform: translateX(-25%) rotate(-5deg);
+  }
+  30% {
+    transform: translateX(20%) rotate(3deg);
+  }
+  45% {
+    transform: translateX(-15%) rotate(-3deg);
+  }
+  60% {
+    transform: translateX(10%) rotate(2deg);
+  }
+  75% {
+    transform: translateX(-5%) rotate(-1deg);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.wobble {
+  animation: wobble 0.6s ease-in-out;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-manrope: var(--font-manrope);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "MADE Outer Sans Regular", Arial, Helvetica, sans-serif;
+}
+
+/* Lighter typography inside Khelegi to avoid bulky look */
+.khelegi-theme h1,
+.khelegi-theme h2 {
+  color: var(--foreground);
+  font-weight: 600;
+}
+
+.khelegi-theme h3,
+.khelegi-theme h4 {
+  color: var(--foreground);
+  font-weight: 500;
+}
+
+/* Custom Scrollbar Styles */
+.custom-scrollbar::-webkit-scrollbar {
+  height: 8px; /* height of horizontal scrollbar */
+  width: 6px; /* width of vertical scrollbar */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: var(--neutral-40); /* Color of the scrollbar thumb */
+  border-radius: 4px; /* Roundness of the scrollbar thumb */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background-color: var(--neutral-10); /* Color of the scrollbar track */
+  border-radius: 8px; /* Roundness of the scrollbar track */
+}
+
+/* Scoped scrollbar colors for Khelegi only */
+.khelegi-theme .custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: var(--neutral-500);
+}
+
+.khelegi-theme .custom-scrollbar::-webkit-scrollbar-track {
+  background-color: var(--neutral-30);
+}

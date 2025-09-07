@@ -1,0 +1,117 @@
+import { collection, addDoc, Timestamp } from "firebase/firestore";
+import { db } from "./lib/firebase";
+import { Gender, GradeLevel, PaymentStatus, Section, Std } from "./models/schoolStudent";
+
+const TEST_SCHOOL_STUDENTS_COLLECTION = 'TestSchoolStudents';
+const TEST_STUDENT_LATEST_TESTS_COLLECTION = 'TestStudentLatestTests';
+
+export async function populateMockData() {
+  console.log("Starting mock data population...");
+
+  const mockStudents = [
+    {
+      name: "Riaan K Shah",
+      email: "riaan.shah@example.com",
+      gender: Gender.MALE,
+      dateOfBirth: Timestamp.fromDate(new Date('2012-10-16T00:00:00Z')),
+      grade: GradeLevel.GRADE6TO8,
+      instituteId: "VDGj0HUC27ffuxLzbluB",
+      isOnBoarded: true,
+      paymentStatus: PaymentStatus.PAID,
+      qrCode: "def2cf6b-cbf5-4029-af7e-1430928aa0e5",
+      rfid: "1dd332ac091080",
+      sId: "2015206", // This will be the studentId for test data
+      section: Section.D,
+      std: Std.SEVEN,
+      createdAt: Timestamp.fromDate(new Date('2025-04-25T04:23:30Z')),
+      updatedAt: Timestamp.fromDate(new Date('2025-06-12T22:13:16Z')),
+    },
+    {
+        name: "Priya Sharma",
+        email: "priya.sharma@example.com",
+        gender: Gender.FEMALE,
+        dateOfBirth: Timestamp.fromDate(new Date('2013-03-20T00:00:00Z')),
+        grade: GradeLevel.GRADE6TO8,
+        instituteId: "VDGj0HUC27ffuxLzbluB",
+        isOnBoarded: true,
+        paymentStatus: PaymentStatus.PAID,
+        qrCode: "abc1def2-3456-7890-abcd-ef1234567890",
+        rfid: "2ee443bd102191",
+        sId: "2015207",
+        section: Section.A,
+        std: Std.SEVEN,
+        createdAt: Timestamp.fromDate(new Date('2025-04-26T08:00:00Z')),
+        updatedAt: Timestamp.fromDate(new Date('2025-06-13T10:30:00Z')),
+    },
+    {
+        name: "Rahul Singh",
+        email: "rahul.singh@example.com",
+        gender: Gender.MALE,
+        dateOfBirth: Timestamp.fromDate(new Date('2011-07-10T00:00:00Z')),
+        grade: GradeLevel.GRADE9TO10,
+        instituteId: "VDGj0HUC27ffuxLzbluB",
+        isOnBoarded: true,
+        paymentStatus: PaymentStatus.UNPAID,
+        qrCode: "fgh3ijk4-5678-90ab-cdef-1234567890ab",
+        rfid: "3ff554ce213202",
+        sId: "2015208",
+        section: Section.B,
+        std: Std.NINE,
+        createdAt: Timestamp.fromDate(new Date('2025-04-27T12:00:00Z')),
+        updatedAt: Timestamp.fromDate(new Date('2025-06-14T14:45:00Z')),
+    },
+    {
+        name: "Anjali Devi",
+        email: "anjali.devi@example.com",
+        gender: Gender.FEMALE,
+        dateOfBirth: Timestamp.fromDate(new Date('2010-01-05T00:00:00Z')),
+        grade: GradeLevel.GRADE9TO10,
+        instituteId: "VDGj0HUC27ffuxLzbluB",
+        isOnBoarded: true,
+        paymentStatus: PaymentStatus.PARTIAL,
+        qrCode: "lmn5opq6-7890-abcd-efgh-1234567890cd",
+        rfid: "4gg665df324313",
+        sId: "2015209",
+        section: Section.C,
+        std: Std.NINE,
+        createdAt: Timestamp.fromDate(new Date('2025-04-28T16:00:00Z')),
+        updatedAt: Timestamp.fromDate(new Date('2025-06-15T18:00:00Z')),
+    }
+  ];
+
+  for (const student of mockStudents) {
+    try {
+      const docRef = await addDoc(collection(db, TEST_SCHOOL_STUDENTS_COLLECTION), student);
+      console.log(`Added student ${student.name} with ID: ${docRef.id}`);
+
+      // Add mock test data for this student
+      const mockTest = {
+        score: {
+          bmi: parseFloat((Math.random() * (25 - 15) + 15).toFixed(1)),
+          bodyControl: parseFloat((Math.random() * (10 - 5) + 5).toFixed(1)),
+          chimpTest: parseFloat((Math.random() * (1.5 - 0.5) + 0.5).toFixed(1)),
+          concentration: parseFloat((Math.random() * (10 - 5) + 5).toFixed(2)),
+          coreBalance: parseFloat((Math.random() * (15 - 8) + 8).toFixed(1)),
+          fatigue: parseFloat((Math.random() * (15 - 8) + 8).toFixed(1)),
+          plank: Math.floor(Math.random() * (90 - 30) + 30),
+          pushup: Math.floor(Math.random() * (30 - 10) + 10),
+        },
+        studentId: student.sId, // Link to the student's sId
+        updatedAt: Timestamp.fromDate(new Date()),
+      };
+
+      await addDoc(collection(db, TEST_STUDENT_LATEST_TESTS_COLLECTION), mockTest);
+      console.log(`Added test data for student ${student.sId}`);
+
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
+  }
+
+  console.log("Mock data population finished.");
+}
+
+// To run this, you would typically call this function manually, 
+// for example, in a development script or a one-off execution.
+// For the purpose of this request, I'm including the call directly.
+// populateMockData();

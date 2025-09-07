@@ -1,0 +1,18 @@
+1. login page= /login --> done my authkey api
+--> login_service file and login_hook will be there --> deals with authkey api
+
+2. home page= /home
+--> home_srvice.ts --> will fetch data from 'SchoolInstitutes','testGradStats','schoolStudents','studentLatestTests','schoolConnection'
+
+-> from email we find the school institue details 'SchoolInstitutes'
+--> main panal header and details will come from this collection
+--> overview will be from 'testGradStats' byfefault it will show the data of all students
+--> student section --> only load when we select the class, 50-50 students will start fetching from the 'school students' will be stored as cache as overall data,
+--> this student will reroute to the student dashboard when we click on it
+--> then from that overall student data based on all filters applied we will show the data in student section combining 'schol students' and 'studentlatesttests' data
+--> all this data will be cached(the original overall data for all clases will be cached)
+--> in left panal there will be a school section shows --> it shows all the school connections from 'schoolConnection'
+
+3. Addschool page=/home/Addschool
+--> it functions like the login method just the data will be added to 'schoolConnection' --> update command 
+

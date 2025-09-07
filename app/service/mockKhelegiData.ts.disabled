@@ -1,0 +1,92 @@
+// Temporary mock data using the real survey responses provided by the user
+// This can be replaced with actual Firestore integration once the database is connected
+
+import { KhelegySurveyResponse } from "../models/khelegySurvey";
+
+export const getMockKhelegiSurveyData = (): KhelegySurveyResponse[] => {
+  return [
+    {
+      id: "8t0liMcCQ1E3f7PktGkm",
+      respondentId: "anonymous",
+      name: "Anonymous Student",
+      email: undefined,
+      ageGroup: AgeGroup.EIGHT_TO_TWELVE,
+      schoolType: "State Board govt funded",
+      religion: "Hindu",
+      casteCommunity: "General",
+      parentalEducation: "Secondary (6th–10th)",
+      parentalOccupation: "Unemployed",
+      sportsParticipationStatus: "Dropout",
+      sportsFrequency: SportsFrequency.NONE,
+      menarcheStatus: "Pre-menarche",
+      menstrualProductUse: undefined,
+      surveyCompletedAt: new Date(1756980897 * 1000),
+      instituteId: "khelegi_survey",
+      createdAt: new Date(1756980897 * 1000),
+      updatedAt: new Date(1756980897 * 1000)
+    },
+    {
+      id: "OCoNQqQrko39CoEsBWt0",
+      respondentId: "ltWzodpNV9QyT7lClUKo",
+      name: "Student from Hyperlab",
+      email: undefined,
+      ageGroup: AgeGroup.TWELVE_TO_SEVENTEEN,
+      schoolType: "CBSE",
+      religion: "Muslim",
+      casteCommunity: "General",
+      parentalEducation: "Graduate",
+      parentalOccupation: "Government Service",
+      sportsParticipationStatus: "Active/Regular",
+      sportsFrequency: SportsFrequency.DAILY,
+      menarcheStatus: "Post-menarche",
+      menstrualProductUse: "Sanitary Pads",
+      surveyCompletedAt: new Date(1757062754 * 1000),
+      instituteId: "khelegi_survey",
+      createdAt: new Date(1757062754 * 1000),
+      updatedAt: new Date(1757062754 * 1000)
+    },
+    {
+      id: "Twowevnh9RbKlXZPhXsQ",
+      respondentId: "0b1a6596-6785-4c7b-ae14-3c56f0fdbad6",
+      name: "Student from Hyperlab",
+      email: undefined,
+      ageGroup: AgeGroup.TWELVE_TO_SEVENTEEN,
+      schoolType: "ICSE",
+      religion: "Christian",
+      casteCommunity: "Scheduled Tribe",
+      parentalEducation: "Graduate",
+      parentalOccupation: "Private Job",
+      sportsParticipationStatus: "Active/Irregular",
+      sportsFrequency: SportsFrequency.DAILY,
+      menarcheStatus: "None",
+      menstrualProductUse: undefined,
+      surveyCompletedAt: new Date(1757060007 * 1000),
+      instituteId: "khelegi_survey",
+      createdAt: new Date(1757060007 * 1000),
+      updatedAt: new Date(1757060007 * 1000)
+    },
+    {
+      id: "ZBgguoqxVsrBBDOsOlt9",
+      respondentId: "anonymous",
+      name: "Anonymous Student",
+      email: undefined,
+      ageGroup: AgeGroup.EIGHT_TO_TWELVE,
+      schoolType: "State Board govt funded",
+      religion: "Hindu",
+      casteCommunity: "General",
+      parentalEducation: "Secondary (6th–10th)",
+      parentalOccupation: "Unemployed",
+      sportsParticipationStatus: "Dropout",
+      sportsFrequency: SportsFrequency.NONE,
+      menarcheStatus: "Pre-menarche",
+      menstrualProductUse: undefined,
+      physicalLiteracyIndex: Quartile.Q1,
+      cognitivePerformanceIndex: Quartile.Q2,
+      fatigueSlope: FatigueSlope.DECLINING,
+      surveyCompletedAt: new Date(1756967176 * 1000),
+      instituteId: "khelegi_survey",
+      createdAt: new Date(1756967176 * 1000),
+      updatedAt: new Date(1756967176 * 1000)
+    }
+  ];
+};
